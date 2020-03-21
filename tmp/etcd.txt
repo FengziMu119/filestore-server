@@ -1,0 +1,7 @@
+nohup  ./etcd --listen-client-urls  "http://0.0.0.0:2379" --advertise-client-urls  "http://0.0.0.0:2379"  &
+
+netstat -lnpt |grep 2379
+
+ETCDCTL_API=3 ./etcdctl
+
+nohup bin/mongod --dbpath=./data --bind_ip=0.0.0.0 &
